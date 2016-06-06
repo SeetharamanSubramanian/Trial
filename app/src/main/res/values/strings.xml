@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Trial</string>
+    <string name="app_name">Saarang Registrations</string>
+    <string name="title_activity_main">Registrations</string>
+    <string-array name="events_array">
+        <item>Raagapella</item>
+        <item>Alankar</item>
+        <item>Decibels</item>
+        <item>Vox</item>
+        <item>$treet$</item>
+    </string-array>
 </resources>
