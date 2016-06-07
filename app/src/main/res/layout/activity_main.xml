@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="0dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <ImageView android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="6dp"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView android:src="@drawable/registration"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="6dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <!-- Firstname Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/et_input_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:hint="First Name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Last Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/et_input_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:hint="Last Name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/et_input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Phone Number Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/et_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Mobile" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <!-- Institute Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/et_institute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textLongMessage"
+                android:hint="College/School" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- Event Label -->
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_eventt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"
+            android:textSize="20dp"
+            android:text="CHOOSE EVENT.."/>
+
+        <!-- Event1 Label -->
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_event1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:padding="6dp"
+            android:textSize="16dp"
+            android:text="Event 1"/>
+
+
+        <!-- Event2 Label -->
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_event2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:textSize="16dp"
+            android:padding="6dp"
+            android:text="Event 2"/>
+
+
+        <!-- Event3 Label -->
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_event3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:padding="6dp"
+            android:textSize="16dp"
+            android:text="Event 3"/>
+
+        <!-- Event4 Label -->
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_event4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:padding="6dp"
+            android:textSize="16dp"
+            android:text="Event 4"/>
+
+        <!-- Event5 Label -->
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/rb_event5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:padding="6dp"
+            android:textSize="16dp"
+            android:text="Event 5"/>
+
+        <!--Accomodation Checkbox -->
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/cb_accomodation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"
+            android:textSize="16dp"
+            android:text="Do you want accomodation?"/>
+
+
+
+        <!-- Register Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/b_register"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:text="Register"/>
+
+
+
+
+    </LinearLayout>
+</ScrollView>
