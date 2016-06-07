@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.seetharaman.trial.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="54dp"
         android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
@@ -21,6 +18,7 @@
             android:id="@+id/til_first_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="@dimen/et_bottom_margin">
 
 
@@ -101,13 +99,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginBottom="32dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
 
+
             android:onClick="submitInfo"
 
             android:text="Submit"
-            android:textColor="#000000" />
+            android:textColor="#FFFFFF" />
     </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</ScrollView>
