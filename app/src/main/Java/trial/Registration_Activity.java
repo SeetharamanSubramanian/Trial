@@ -49,7 +49,7 @@ public class Registration_Activity extends ActionBarActivity{
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    if (et_first_name.getText().toString().length() != 0) {
+                    if (et_first_name.getText().toString().trim().length() != 0) {
                         Drawable dr = getResources().getDrawable(R.drawable.check);
                         dr.setBounds(0, 0, dr.getIntrinsicWidth(), dr.getIntrinsicHeight());
                         et_first_name.setCompoundDrawables(null, null, dr, null);
@@ -66,7 +66,7 @@ public class Registration_Activity extends ActionBarActivity{
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    if (et_last_name.getText().toString().length() != 0) {
+                    if (et_last_name.getText().toString().trim().length() != 0) {
                         Drawable dr = getResources().getDrawable(R.drawable.check);
                         dr.setBounds(0, 0, dr.getIntrinsicWidth(), dr.getIntrinsicHeight());
                         et_last_name.setCompoundDrawables(null, null, dr, null);
@@ -120,7 +120,7 @@ public class Registration_Activity extends ActionBarActivity{
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    if (et_college_name.getText().toString().length() != 0) {
+                    if (et_college_name.getText().toString().trim().length() != 0) {
                         Drawable dr = getResources().getDrawable(R.drawable.check);
                         dr.setBounds(0, 0, dr.getIntrinsicWidth(), dr.getIntrinsicHeight());
                         et_college_name.setCompoundDrawables(null, null, dr, null);
