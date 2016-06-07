@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             tilFirstName.setError("Field cannot be blank");
             isValid = false;
         }
-        if (!firstName.matches("[a-zA-Z ]+")) {
+        else if (!firstName.matches("[a-zA-Z ]+")) {
             tilFirstName.setError("Enter valid First Name");
             isValid = false;
         } else {
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             tilLastName.setError("Field cannot be blank");
             isValid = false;
         }
-        if (!lastName.matches("[a-zA-Z ]+")) {
+        else if (!lastName.matches("[a-zA-Z ]+")) {
             tilLastName.setError("Enter valid Last Name");
             isValid = false;
         } else {
@@ -106,7 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
         //Check validity of Email Address
         Boolean emailBool = isValidEmail(email);
-        if (!emailBool) {
+        if (email.length() == 0) {
+            tilEmail.setError("Field cannot be blank");
+            isValid = false;
+        }
+        else if (!emailBool) {
             tilEmail.setError("Enter a valid Email Address");
             isValid = false;
         }
@@ -116,12 +120,16 @@ public class MainActivity extends AppCompatActivity {
 
         //Check validity of Phone Number
         Boolean phoneBool = isValidPhone(phone);
-        if (!phoneBool) {
+        if (phone.length() == 0) {
+            tilPhone.setError("Field cannot be blank");
+            isValid = false;
+        }
+        else if (!phoneBool) {
             tilPhone.setError("Enter a valid Phone number");
             isValid = false;
         }
         else {
-            tilEmail.setErrorEnabled(false);
+            tilPhone.setErrorEnabled(false);
         }
 
         //Check validity of School Name
@@ -129,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             tilSchoolName.setError("Field cannot be blank");
             isValid = false;
         }
-        if (!college.matches("[a-zA-Z ]+")) {
+        else if (!college.matches("[a-zA-Z ]+")) {
             tilSchoolName.setError("Enter valid School Name");
             isValid = false;
         } else {
