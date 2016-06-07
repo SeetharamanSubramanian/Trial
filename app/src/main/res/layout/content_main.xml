@@ -9,24 +9,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
         android:orientation="vertical"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingRight="16dp"
+        android:paddingTop="54dp">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_first_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="@dimen/et_bottom_margin">
+            android:layout_marginBottom="@dimen/et_bottom_margin"
+            android:layout_marginTop="32dp">
 
 
             <EditText
                 android:id="@+id/et_first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="First Name"
+                android:hint="@string/et_hint_first_name"
                 android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
 
@@ -41,7 +41,7 @@
                 android:id="@+id/et_last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Last Name"
+                android:hint="@string/et_hint_last_name"
                 android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
 
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
 
                 android:ems="10"
-                android:hint="Email Address"
+                android:hint="@string/et_hint_email_address"
                 android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Phone"
+                android:hint="@string/et_hint_phone"
                 android:inputType="phone" />
         </android.support.design.widget.TextInputLayout>
 
@@ -86,7 +86,7 @@
                 android:id="@+id/et_school_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="School/College Name"
+                android:hint="@string/et_hint_school_college_name"
                 android:inputType="textCapWords" />
         </android.support.design.widget.TextInputLayout>
 
@@ -104,10 +104,9 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
 
-
             android:onClick="submitInfo"
 
-            android:text="Submit"
+            android:text="@string/b_text_submit"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 </ScrollView>

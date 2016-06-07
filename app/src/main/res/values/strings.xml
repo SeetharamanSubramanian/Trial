@@ -1,6 +1,15 @@
 <resources>
+
     <string name="app_name">Saarang Registrations</string>
     <string name="title_activity_main">Registrations</string>
+
+    <string name="et_hint_first_name">First Name</string>
+    <string name="et_hint_last_name">Last Name</string>
+    <string name="et_hint_email_address">Email Address</string>
+    <string name="et_hint_phone">Phone</string>
+    <string name="et_hint_school_college_name">School/College Name</string>
+    <string name="b_text_submit">Submit</string>
+
     <string-array name="events_array">
         <item>Raagapella</item>
         <item>Alankar</item>
@@ -8,4 +17,5 @@
         <item>Vox</item>
         <item>$treet$</item>
     </string-array>
+
 </resources>
