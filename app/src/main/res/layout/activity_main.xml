@@ -13,17 +13,17 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <ImageView android:src="@drawable/logo"
+        <ImageView android:src="@drawable/saarang"
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
+            android:layout_height="55dp"
             android:layout_marginBottom="6dp"
             android:layout_gravity="center_horizontal" />
 
         <ImageView android:src="@drawable/registration"
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
+            android:layout_height="55dp"
             android:layout_marginBottom="6dp"
-            android:layout_gravity="center_horizontal" />
+            android:paddingLeft="-100dp" />
 
 
         <!-- Firstname Label -->
@@ -179,6 +179,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
+            android:textColor="@color/primary"
             android:text="Register"/>
 
 
