@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         til_collegeWrapper=(TextInputLayout)findViewById(R.id.til_collegeWrapper);
         til_collegeWrapper.setHint("School/College Name");
         //til_collegeWrapper.setError(" ");
-
+/*"
+app:hintTextAppearance="@style/error_appearance""
+        */
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void submit(View v)
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         {
             til_firstNameWrapper.setError("Not a valid first name!");
             changeColorFilter(til_firstNameWrapper);
+            this.showSoftKeyboard(til_firstNameWrapper);
             // til_firstNameWrapper.getEditText().setBackground(getResources().getDrawable(R.drawable.edittextbox));
         }
         else {
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 til_lastNameWrapper.setError("Not a valid last name!");
                 changeColorFilter(til_lastNameWrapper);
+                this.showSoftKeyboard(til_lastNameWrapper);
             }
             else {
                 til_lastNameWrapper.setError(" ");
@@ -67,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     til_emailWrapper.setError("Not a valid email!");
                     changeColorFilter(til_emailWrapper);
+                    this.showSoftKeyboard(til_emailWrapper);
                 }
                 else {
                     til_emailWrapper.setError(" ");
@@ -75,17 +81,20 @@ public class MainActivity extends AppCompatActivity {
                     {
                         til_contactWrapper.setError("Not a valid contact number!");
                         changeColorFilter(til_contactWrapper);
+                        this.showSoftKeyboard(til_contactWrapper);
                     }
                     else {
                         til_contactWrapper.setError(" ");
-                        changeColorFilter(til_emailWrapper);
+                        changeColorFilter(til_contactWrapper);
                         if(!validatecollege(college)) {
                             til_collegeWrapper.setError("Not a valid school/college name!");
                             changeColorFilter(til_collegeWrapper);
+                            this.showSoftKeyboard(til_collegeWrapper);
                         }
                         else {
                             til_collegeWrapper.setError(" ");
-                            changeColorFilter(til_emailWrapper);
+                            changeColorFilter(til_collegeWrapper);
+                            this.hideSoftKeyboard();
                             Toast.makeText(this, "Login successful", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -113,6 +122,17 @@ public class MainActivity extends AppCompatActivity {
     }
     public void changeColorFilter(TextInputLayout til){
         til.getEditText().getBackground().setColorFilter(ContextCompat.getColor(this, R.color.red), PorterDuff.Mode.SRC_IN);}
+    public void hideSoftKeyboard() {
+        if(getCurrentFocus()!=null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+    }
+    public void showSoftKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        view.requestFocus();
+        inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+    }
 }
 
 
