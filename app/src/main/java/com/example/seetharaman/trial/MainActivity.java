@@ -18,6 +18,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
@@ -29,17 +32,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spinner = (Spinner) findViewById(R.id.event_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.events_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        assert spinner != null;
-        spinner.setAdapter(adapter);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         assert toolbar != null;
         toolbar.setTitle("Registrations");
+
+        spinner = (Spinner) findViewById(R.id.event_spinner);
+        List<String> list = new ArrayList<>();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.my_spinner_item, list);
+
+        list.add("Raagapella");
+        list.add("Alankar");
+        list.add("Decibels");
+        list.add("Vox");
+        list.add("$treet$");
+
+        spinner.setAdapter(adapter);
+        spinner.setPrompt("Select an event");
 
         firstNameET = (EditText) findViewById(R.id.et_first_name);
         lastNameET = (EditText) findViewById(R.id.et_last_name);
@@ -60,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         phoneET.addTextChangedListener(new MyTextWatcher(phoneET));
         collegeET.addTextChangedListener(new MyTextWatcher(collegeET));
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     public void submitInfo(View view) {
@@ -73,10 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(view.getContext(), MainActivity.class);
             startActivity(intent);
-        }
-        else {
-            Toast submitToast = Toast.makeText(getApplicationContext(), "Please provide valid details", Toast.LENGTH_SHORT);
-            submitToast.show();
         }
     }
 
@@ -117,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             tilFirstName.setError("Enter valid First Name");
             isValid = false;
         } else {
-            tilFirstName.setErrorEnabled(false);
+            tilFirstName.setError(null);
         }
         return isValid;
     }
@@ -133,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             tilLastName.setError("Enter valid First Name");
             isValid = false;
         } else {
-            tilLastName.setErrorEnabled(false);
+            tilLastName.setError(null);
         }
         return isValid;
     }
@@ -149,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             isValid = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
             if (!isValid) {
                 tilEmail.setError("Enter a valid Email Address");
-            } else tilEmail.setErrorEnabled(false);
+            } else tilEmail.setError(null);
         }
         return isValid;
     }
@@ -161,12 +167,17 @@ public class MainActivity extends AppCompatActivity {
         if (phone.isEmpty()) {
             tilPhone.setError("Field cannot be blank");
             isValid = false;
+        } else if (phone.length() > 13) {
+            tilPhone.setError("Enter a valid Phone Number");
+            isValid = false;
+        } else if (!android.util.Patterns.PHONE.matcher(phone).matches()) {
+            tilPhone.setError("Enter a valid Phone Number");
+            isValid = false;
         } else {
-            isValid = android.util.Patterns.PHONE.matcher(phone).matches();
-            if (!isValid) {
-                tilPhone.setError("Enter a valid Phone Number");
-            } else tilPhone.setErrorEnabled(false);
+            tilPhone.setError(null);
+            isValid = true;
         }
+
         return isValid;
     }
 
@@ -181,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
             tilSchoolName.setError("Enter valid School/College Name");
             isValid = false;
         } else {
-            tilSchoolName.setErrorEnabled(false);
+            tilSchoolName.setError(null);
         }
         return isValid;
     }
@@ -227,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
+
     }
 
     @Override
@@ -244,13 +256,11 @@ public class MainActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if(id==R.id.action_refresh) {
+        if (id == R.id.action_refresh) {
             Intent intent = new Intent(this, MainActivity.class);
             this.startActivity(intent);
             return true;
-        }
-
-        else if (id == R.id.action_reset) {
+        } else if (id == R.id.action_reset) {
             Intent intent = new Intent(this, MainActivity.class);
             this.startActivity(intent);
             return true;
