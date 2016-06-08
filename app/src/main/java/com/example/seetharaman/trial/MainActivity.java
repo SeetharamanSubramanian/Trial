@@ -244,7 +244,13 @@ public class MainActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_reset) {
+        if(id==R.id.action_refresh) {
+            Intent intent = new Intent(this, MainActivity.class);
+            this.startActivity(intent);
+            return true;
+        }
+
+        else if (id == R.id.action_reset) {
             Intent intent = new Intent(this, MainActivity.class);
             this.startActivity(intent);
             return true;
