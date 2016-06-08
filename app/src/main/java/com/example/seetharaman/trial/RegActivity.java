@@ -21,7 +21,7 @@ public class RegActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
-        toolbar.setTitle("Registrations");
+        toolbar.setTitle("Registration");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         setSupportActionBar(toolbar);
 
@@ -34,7 +34,6 @@ public class RegActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, events);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         //Spinner Operations
         Spinner spinner = (Spinner) findViewById(R.id.spinner_event);
         spinner.setAdapter(adapter);
@@ -42,26 +41,55 @@ public class RegActivity extends AppCompatActivity {
     }
 
     public void registerButton(View view) {
-
+        int errorFlag = 0;
+        EditText fname = (EditText) findViewById(R.id.et_firstname);
+        EditText lname = (EditText) findViewById(R.id.et_lastname);
+        EditText email = (EditText) findViewById(R.id.et_email);
         EditText phno = (EditText) findViewById(R.id.et_phonenumber);
+        EditText college = (EditText) findViewById(R.id.et_college);
+
         /*Checking if any of the field in the form are not filled
         Check for lastname is excluded for people without last names
         Check for Spinner value is excluded since it cannot take an empty value
         Check for phno also checks if only 10 digits are included by using regex
         A variable is created for phno to avoid multiple calls to findViewById()
         */
-        if (((EditText) findViewById(R.id.et_firstname)).getText().toString().isEmpty())
-            Toast.makeText(this, "First name field is required.", Toast.LENGTH_SHORT).show();
-        else if (((EditText) findViewById(R.id.et_email)).getText().toString().isEmpty())
-            Toast.makeText(this, "Email ID field is required.", Toast.LENGTH_SHORT).show();
-        else if (phno.getText().toString().isEmpty())
-            Toast.makeText(this, "Phone number field is required.", Toast.LENGTH_SHORT).show();
-        else if (!(phno.getText().toString().matches("[0-9]{10}")))
-            Toast.makeText(this, "Please enter a valid 10 digit phone number.", Toast.LENGTH_SHORT).show();
-        else if (((EditText) findViewById(R.id.et_college)).getText().toString().isEmpty())
-            Toast.makeText(this, "College name field is required.", Toast.LENGTH_SHORT).show();
-        else {
-            Toast.makeText(this, "Successfully Registered.", Toast.LENGTH_LONG).show();
+        if (fname.getText().toString().isEmpty()) {
+            fname.setError("Required field");
+            errorFlag = 1;
+        } else
+            fname.setError(null);
+
+
+        if (lname.getText().toString().isEmpty()) {
+            lname.setError("Required field");
+            errorFlag = 1;
+        } else
+            lname.setError(null);
+
+        if (email.getText().toString().isEmpty()) {
+            email.setError("Required field");
+            errorFlag = 1;
+        } else
+            email.setError(null);
+
+        if (phno.getText().toString().isEmpty()) {
+            phno.setError("Required field.");
+            errorFlag = 1;
+        } else if (!(phno.getText().toString().matches("[0-9]{10}"))) {
+            phno.setError("Enter a valid 10 digit phone number.");
+            errorFlag = 1;
+        } else
+            phno.setError(null);
+
+        if (((EditText) findViewById(R.id.et_college)).getText().toString().isEmpty()) {
+            college.setError("College name field is required.");
+            errorFlag = 1;
+        } else
+            college.setError(null);
+        //Add something to indicate successful registration
+        if(errorFlag==0){
+            Toast.makeText(getApplicationContext(),"Successfully Registered!",Toast.LENGTH_LONG).show();
         }
     }
 }
