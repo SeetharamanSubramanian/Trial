@@ -176,7 +176,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/et_hint_school_college_name"
-                    android:inputType="textCapWords" />
+                    android:inputType="textPersonName" />
             </android.support.design.widget.TextInputLayout>
 
         </RelativeLayout>

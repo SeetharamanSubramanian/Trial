@@ -91,25 +91,46 @@ public class MainActivity extends AppCompatActivity {
 
         //Check validity of First Name
         isValid = isValidFirstName();
-        if (!isValid) return isValid;
+        if (!isValid) {
+            requestFocus(firstNameET);
+            return isValid;
+        }
 
         //Check validity of Last Name
         isValid = isValidLastName();
-        if (!isValid) return isValid;
+        if (!isValid) {
+            requestFocus(lastNameET);
+            return isValid;
+        }
 
         //Check validity of Email Address
         isValid = isValidEmail();
-        if (!isValid) return isValid;
+        if (!isValid) {
+            requestFocus(emailET);
+            return isValid;
+        }
 
         //Check validity of Phone Number
         isValid = isValidPhone();
-        if (!isValid) return isValid;
+        if (!isValid) {
+            requestFocus(phoneET);
+            return isValid;
+        }
 
         //Check validity of School Name
         isValid = isValidSchoolName();
-        if (!isValid) return isValid;
+        if (!isValid) {
+            requestFocus(collegeET);
+            return isValid;
+        }
 
         return isValid;
+    }
+
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
     }
 
     //Check validity of First Name
@@ -168,6 +189,9 @@ public class MainActivity extends AppCompatActivity {
             tilPhone.setError("Field cannot be blank");
             isValid = false;
         } else if (phone.length() > 13) {
+            tilPhone.setError("Enter a valid Phone Number");
+            isValid = false;
+        } else if (phone.length() < 10) {
             tilPhone.setError("Enter a valid Phone Number");
             isValid = false;
         } else if (!android.util.Patterns.PHONE.matcher(phone).matches()) {
