@@ -13,159 +13,193 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <ImageView android:src="@drawable/saarang"
+        <!--saarang-->
+        <ImageView android:src="@drawable/saaranglogo17"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
             android:layout_marginBottom="6dp"
             android:layout_gravity="center_horizontal" />
 
-        <ImageView android:src="@drawable/registration"
+         <!--registration title-->
+        <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:layout_marginBottom="6dp"
-            android:paddingLeft="-100dp" />
+            android:layout_height="wrap_content"
+            android:text="REGISTRATION"
+            android:textSize="25dp"/>
 
 
-        <!-- Firstname Label -->
-        <android.support.design.widget.TextInputLayout
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/et_input_firstname"
+            android:layout_marginBottom="8dp"
+                android:paddingLeft="24dp"
+                android:id="@+id/et_input_firstname">
+                <!--Firstname Label-->
+            <EditText
                 android:layout_width="match_parent"
+                android:layout_weight="13"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
                 android:hint="First Name" />
         </android.support.design.widget.TextInputLayout>
+            <ImageView android:src="@drawable/ic_firstname"
+                android:layout_width="wrap_content"
+                android:id="@+id/iv_firstname"
+                android:layout_alignBottom="@+id/et_input_firstname"
+                android:layout_height="wrap_content"
+                android:baselineAlignBottom="true"
+                android:paddingBottom="5dp"/>
+        </RelativeLayout>
 
-        <!-- Last Name Label -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <!-- Lastname Label -->
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/et_input_lastname"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/et_input_lastname"
+            android:paddingLeft="24dp">
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
                 android:hint="Last Name" />
         </android.support.design.widget.TextInputLayout>
+            <ImageView android:src="@drawable/ic_lastname"
+                android:layout_width="24dp"
+                android:id="@+id/iv_lastname"
+                android:layout_alignBottom="@+id/et_input_lastname"
+                android:layout_height="wrap_content"
+                android:baselineAlignBottom="true"
+                android:paddingBottom="5dp"/>
+        </RelativeLayout>
 
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/et_input_email"
-                android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/et_input_email"
+            android:paddingLeft="24dp">
+            <EditText  android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="Email" />
         </android.support.design.widget.TextInputLayout>
+            <ImageView android:src="@drawable/ic_email"
+                android:layout_width="24dp"
+                android:id="@+id/iv_email"
+                android:layout_alignBottom="@+id/et_input_email"
+                android:layout_height="wrap_content"
+                android:baselineAlignBottom="true"
+                android:paddingBottom="5dp"/>
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <!-- Phone Number Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/et_mobile"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/et_mobile"
+            android:paddingLeft="24dp">
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:hint="Mobile" />
         </android.support.design.widget.TextInputLayout>
+            <ImageView android:src="@drawable/ic_phone"
+                android:layout_width="24dp"
+                android:id="@+id/iv_mobile"
+                android:layout_alignBottom="@+id/et_mobile"
+                android:layout_height="wrap_content"
+                android:baselineAlignBottom="true"
+                android:paddingBottom="5dp"/>
+        </RelativeLayout>
 
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <!-- Institute Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/et_institute"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/et_institute"
+            android:paddingLeft="24dp">
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textLongMessage"
                 android:hint="College/School" />
         </android.support.design.widget.TextInputLayout>
+            <ImageView android:src="@drawable/ic_institute"
+                android:layout_width="24dp"
+                android:id="@+id/iv_institute"
+                android:layout_alignBottom="@+id/et_institute"
+                android:layout_height="wrap_content"
+                android:baselineAlignBottom="true"
+                android:paddingBottom="5dp"/>
+        </RelativeLayout>
 
         <!-- Event Label -->
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tv_eventt"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:padding="12dp"
-            android:textSize="20dp"
-            android:text="CHOOSE EVENT.."/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHOOSE EVENT"
+            android:textSize="20dp"/>
 
-        <!-- Event1 Label -->
-        <android.support.v7.widget.AppCompatRadioButton
-            android:id="@+id/rb_event1"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <!--Spinner-->
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/s_events"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:padding="6dp"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
             android:textSize="16dp"
-            android:text="Event 1"/>
-
-
-        <!-- Event2 Label -->
-        <android.support.v7.widget.AppCompatRadioButton
-            android:id="@+id/rb_event2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:textSize="16dp"
-            android:padding="6dp"
-            android:text="Event 2"/>
-
-
-        <!-- Event3 Label -->
-        <android.support.v7.widget.AppCompatRadioButton
-            android:id="@+id/rb_event3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:padding="6dp"
-            android:textSize="16dp"
-            android:text="Event 3"/>
-
-        <!-- Event4 Label -->
-        <android.support.v7.widget.AppCompatRadioButton
-            android:id="@+id/rb_event4"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:padding="6dp"
-            android:textSize="16dp"
-            android:text="Event 4"/>
-
-        <!-- Event5 Label -->
-        <android.support.v7.widget.AppCompatRadioButton
-            android:id="@+id/rb_event5"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:padding="6dp"
-            android:textSize="16dp"
-            android:text="Event 5"/>
+            android:popupBackground="@color/primary_darker"
+            android:spinnerMode="dropdown"
+            android:paddingLeft="24dp"/>
+            <ImageView android:src="@drawable/eventlist"
+                android:layout_width="24dp"
+                android:id="@+id/iv_eventlist"
+                android:layout_alignBottom="@+id/s_events"
+                android:layout_height="wrap_content"
+                android:baselineAlignBottom="true"
+                android:paddingBottom="5dp"/>
+        </RelativeLayout>
 
         <!--Accomodation Checkbox -->
         <android.support.v7.widget.AppCompatCheckBox
             android:id="@+id/cb_accomodation"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
             android:textSize="16dp"
             android:text="Do you want accomodation?"/>
 
