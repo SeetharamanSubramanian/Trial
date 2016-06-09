@@ -1,5 +1,6 @@
 package com.example.seetharaman.trial;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -145,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
             isValid = false;
         } else {
             tilFirstName.setError(null);
+            tilFirstName.setErrorEnabled(false);
         }
         return isValid;
     }
@@ -161,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
             isValid = false;
         } else {
             tilLastName.setError(null);
+            tilLastName.setErrorEnabled(false);
         }
         return isValid;
     }
@@ -176,7 +179,10 @@ public class MainActivity extends AppCompatActivity {
             isValid = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
             if (!isValid) {
                 tilEmail.setError("Enter a valid Email Address");
-            } else tilEmail.setError(null);
+            } else {
+                tilEmail.setError(null);
+                tilEmail.setErrorEnabled(false);
+            }
         }
         return isValid;
     }
@@ -199,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
             isValid = false;
         } else {
             tilPhone.setError(null);
+            tilPhone.setErrorEnabled(false);
             isValid = true;
         }
 
@@ -217,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
             isValid = false;
         } else {
             tilSchoolName.setError(null);
+            tilSchoolName.setErrorEnabled(false);
         }
         return isValid;
     }
@@ -224,9 +232,18 @@ public class MainActivity extends AppCompatActivity {
     private void hideKeyboard() {
         View view = getCurrentFocus();
         if (view != null) {
-            ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).
-                    hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+           hideKeyboard1(view);
         }
+    }
+
+    public void hideKeyboard1(View view) {
+        tilFirstName.clearFocus();
+        tilLastName.clearFocus();
+        tilEmail.clearFocus();
+        tilPhone.clearFocus();
+        tilSchoolName.clearFocus();
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 
     private class MyTextWatcher implements TextWatcher {
