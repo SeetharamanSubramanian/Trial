@@ -1,7 +1,6 @@
 package com.example.seetharaman.trial;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -24,7 +23,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Spinner spinner;
     private EditText firstNameET, lastNameET, emailET, phoneET, collegeET;
     private TextInputLayout tilFirstName, tilLastName, tilEmail, tilPhone, tilSchoolName;
 
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         assert toolbar != null;
         toolbar.setTitle("Registrations");
 
-        spinner = (Spinner) findViewById(R.id.event_spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.event_spinner);
         List<String> list = new ArrayList<>();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.my_spinner_item, list);
 
@@ -48,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("Vox");
         list.add("$treet$");
 
+        assert spinner != null;
         spinner.setAdapter(adapter);
         spinner.setPrompt("Select an event");
 
@@ -126,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             return isValid;
         }
 
-        return isValid;
+        return true;
     }
 
     private void requestFocus(View view) {
@@ -233,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
     private void hideKeyboard() {
         View view = getCurrentFocus();
         if (view != null) {
-           hideKeyboard1(view);
+            hideKeyboard1(view);
         }
     }
 
@@ -243,12 +242,12 @@ public class MainActivity extends AppCompatActivity {
         inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 
-    public void removeAllFocus(){
-        tilFirstName.clearFocus();
-        tilLastName.clearFocus();
-        tilEmail.clearFocus();
-        tilPhone.clearFocus();
-        tilSchoolName.clearFocus();
+    public void removeAllFocus() {
+        if(firstNameET.isFocused())tilFirstName.clearFocus();
+        if(lastNameET.isFocused())tilLastName.clearFocus();
+        if(emailET.isFocused())tilEmail.clearFocus();
+        if(phoneET.isFocused())tilPhone.clearFocus();
+        if(collegeET.isFocused())tilSchoolName.clearFocus();
     }
 
     private class MyTextWatcher implements TextWatcher {
@@ -289,31 +288,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
             Intent intent = new Intent(this, MainActivity.class);
             this.startActivity(intent);
             return true;
-        } else if (id == R.id.action_reset) {
-            Intent intent = new Intent(this, MainActivity.class);
-            this.startActivity(intent);
-            return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 }
 
