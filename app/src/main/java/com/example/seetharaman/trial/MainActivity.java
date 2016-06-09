@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         //Check whether the inputs given by user are valid:
         Boolean isValid = checkValidity();
         hideKeyboard();
+        removeAllFocus();
 
         if (isValid) {
             Toast submitToast = Toast.makeText(getApplicationContext(), "Successfully submitted!", Toast.LENGTH_SHORT);
@@ -237,13 +238,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hideKeyboard1(View view) {
+        removeAllFocus();
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void removeAllFocus(){
         tilFirstName.clearFocus();
         tilLastName.clearFocus();
         tilEmail.clearFocus();
         tilPhone.clearFocus();
         tilSchoolName.clearFocus();
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 
     private class MyTextWatcher implements TextWatcher {
