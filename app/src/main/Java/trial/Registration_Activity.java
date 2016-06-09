@@ -19,13 +19,14 @@ public class Registration_Activity extends ActionBarActivity{
 
     TextInputLayout til_first_name, til_last_name, til_email, til_phone_number, til_college_name;
     String first_name, last_name, email, phone_number, college_name;
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";//For validating the e-mail
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registration_page);
+        setContentView(R.layout.registration_page);//Setting content view on registration_page
 
+        //Setting up the toolbar
         Toolbar t_reg_toolbar=(Toolbar)findViewById(R.id.t_reg_toolbar);
         t_reg_toolbar.setTitle("Registration Page");
         t_reg_toolbar.setTitleTextColor(getResources().getColor(R.color.colorIcons));
@@ -44,7 +45,9 @@ public class Registration_Activity extends ActionBarActivity{
         til_college_name=(TextInputLayout)findViewById(R.id.til_college_name);
 
 
+        //Adding a tick mark in front of the text fields which are correctly filled
         final EditText et_first_name=(EditText)findViewById(R.id.et_first_name);
+        //Checking is focus i changed from the text field
         et_first_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -54,7 +57,7 @@ public class Registration_Activity extends ActionBarActivity{
                         dr.setBounds(0, 0, dr.getIntrinsicWidth(), dr.getIntrinsicHeight());
                         et_first_name.setCompoundDrawables(null, null, dr, null);
                         til_first_name.setError(" ");
-                    } else {
+                    } else {//Removing tick mark from the field if incorrectly filled
                         et_first_name.setCompoundDrawables(null, null, null, null);
                     }
                 }
@@ -135,6 +138,7 @@ public class Registration_Activity extends ActionBarActivity{
 
     }
 
+    //Setting up the action for the submit button
     public void submit(View view){
 
         first_name=til_first_name.getEditText().getText().toString();
@@ -143,6 +147,7 @@ public class Registration_Activity extends ActionBarActivity{
         phone_number=til_phone_number.getEditText().getText().toString();
         college_name=til_college_name.getEditText().getText().toString();
 
+        //Setting up the error messages
         if(first_name.trim().length()==0)
             til_first_name.setError("Field cannot remain empty");
         else
@@ -158,6 +163,7 @@ public class Registration_Activity extends ActionBarActivity{
         else
             til_phone_number.setError(" ");
 
+        //Sending a message if all the data is correctly filled via Toast
         if(first_name.trim().length()!=0 && email.matches(emailPattern) && phone_number.length()==10)
             Toast.makeText(getApplicationContext(),"Registered",Toast.LENGTH_SHORT).show();
     }
