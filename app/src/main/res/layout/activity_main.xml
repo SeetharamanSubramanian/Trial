@@ -13,6 +13,7 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
+
         <!--saarang-->
         <ImageView android:src="@drawable/saaranglogo17"
             android:layout_width="wrap_content"
@@ -42,6 +43,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_weight="13"
+                android:id="@+id/et_firstname"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
                 android:hint="First Name" />
@@ -72,6 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
+                android:id="@+id/et_lastname"
                 android:hint="Last Name" />
         </android.support.design.widget.TextInputLayout>
             <ImageView android:src="@drawable/ic_lastname"
@@ -86,16 +89,18 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <android.support.v7.widget.AppCompatRadioButton
+        <RadioButton
             android:layout_width="wrap_content"
             android:id="@+id/rb_male"
+            android:onClick="onClickRb"
             android:layout_height="wrap_content"
             android:text="Male"/>
-        <android.support.v7.widget.AppCompatRadioButton
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rb_female"
             android:textColor="@color/white"
+            android:onClick="onClickRb"
             android:text="Female"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/rb_male"
@@ -116,6 +121,7 @@
             <EditText  android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:id="@+id/et_email"
                 android:hint="Email" />
         </android.support.design.widget.TextInputLayout>
             <ImageView android:src="@drawable/ic_email"
@@ -136,18 +142,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:id="@+id/et_mobile"
+            android:id="@+id/et_input_phonenumber"
             android:paddingLeft="24dp">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/et_phonenumber"
                 android:inputType="number"
                 android:hint="Mobile" />
         </android.support.design.widget.TextInputLayout>
             <ImageView android:src="@drawable/ic_phone"
                 android:layout_width="24dp"
                 android:id="@+id/iv_mobile"
-                android:layout_alignBottom="@+id/et_mobile"
+                android:layout_alignBottom="@+id/et_input_phonenumber"
                 android:layout_height="wrap_content"
                 android:baselineAlignBottom="true"
                 android:paddingBottom="5dp"/>
@@ -164,9 +171,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:id="@+id/et_institute"
+            android:id="@+id/et_input_institute"
             android:paddingLeft="24dp">
             <EditText
+                android:id="@+id/et_institute"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textLongMessage"
@@ -175,7 +183,7 @@
             <ImageView android:src="@drawable/ic_institute"
                 android:layout_width="24dp"
                 android:id="@+id/iv_institute"
-                android:layout_alignBottom="@+id/et_institute"
+                android:layout_alignBottom="@+id/et_input_institute"
                 android:layout_height="wrap_content"
                 android:baselineAlignBottom="true"
                 android:paddingBottom="5dp"/>
@@ -202,7 +210,7 @@
             android:textSize="16dp"
             android:popupBackground="@color/primary_darker"
             android:spinnerMode="dropdown" />
-            <ImageView android:src="@drawable/eventlist"
+            <ImageView android:src="@drawable/ic_events"
                 android:layout_width="24dp"
                 android:id="@+id/iv_eventlist"
                 android:layout_alignBottom="@+id/s_events"
@@ -224,7 +232,7 @@
 
 
         <!-- Register Button -->
-        <android.support.v7.widget.AppCompatButton
+        <Button
             android:id="@+id/b_register"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -232,7 +240,8 @@
             android:layout_marginBottom="24dp"
             android:padding="12dp"
             android:textColor="@color/primary"
-            android:text="Register"/>
+            android:text="Register"
+            android:onClick="onClickRegisterBtn"/>
 
 
 
