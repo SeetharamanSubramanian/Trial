@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fitsSystemWindows="true"
-    >
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:orientation="vertical"
@@ -84,6 +83,24 @@
                 android:paddingBottom="5dp"/>
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:id="@+id/rb_male"
+            android:layout_height="wrap_content"
+            android:text="Male"/>
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_female"
+            android:textColor="@color/white"
+            android:text="Female"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/rb_male"
+            android:layout_marginStart="70dp" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
