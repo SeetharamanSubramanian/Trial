@@ -60,7 +60,6 @@ public class RegActivity extends AppCompatActivity {
         } else
             fname.setError(null);
 
-
         if (lname.getText().toString().isEmpty()) {
             lname.setError("Required field");
             errorFlag = 1;
@@ -70,7 +69,11 @@ public class RegActivity extends AppCompatActivity {
         if (email.getText().toString().isEmpty()) {
             email.setError("Required field");
             errorFlag = 1;
-        } else
+        } else if (!(email.getText().toString().matches("[\\w.-]+@[\\w.-]+\\.[\\w.-]+"))) { //checking for (word)@(word).(word) using regex
+            email.setError("Enter a valid email address.");
+            errorFlag = 1;
+        }
+        else
             email.setError(null);
 
         if (phno.getText().toString().isEmpty()) {

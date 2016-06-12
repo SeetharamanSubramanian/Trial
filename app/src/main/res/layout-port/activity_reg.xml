@@ -23,6 +23,7 @@
         android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
         app:titleTextAppearance="@style/toolbar_title_port" />
+        <!--Title name given in Java file-->
 
     <!--Form-->
     <ScrollView
@@ -35,179 +36,201 @@
         android:background="#CEFFFFFF"
         android:elevation="4dp"
         android:fitsSystemWindows="true"
-        android:paddingBottom="16dp">
+        android:paddingBottom="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="8dp"
             android:orientation="vertical">
+            <!--Heading-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Enter Your Details Here:"
+                android:textColor="@color/themeColor"
+                android:textSize="20sp"
+                />
             <!--First Name-->
             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:tint="#BB303F9F"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_person_black_24dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="16dp"
-                android:gravity="bottom"
-                android:layout_gravity="bottom"/>
-            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content">
 
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="bottom"
+                    android:src="@drawable/ic_person_black_24dp"
+                    android:tint="@color/themeColor" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_firstname"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="First Name"
-                    android:imeOptions="actionNext"
-                    android:inputType="textCapWords|textPersonName" />
-            </android.support.design.widget.TextInputLayout>
-</LinearLayout>
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_firstname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="First Name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords|textPersonName"
+                        android:textSize="16sp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
             <!--Last Name-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:tint="#BB303F9F"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_person_black_24dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="16dp"
-                android:gravity="bottom"
-                android:layout_gravity="bottom"/>
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content">
 
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="bottom"
+                    android:src="@drawable/ic_person_black_24dp"
+                    android:tint="@color/themeColor" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_lastname"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Last Name"
-                    android:imeOptions="actionNext"
-                    android:inputType="textCapWords|textPersonName" />
-            </android.support.design.widget.TextInputLayout>
-</LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:tint="#BB303F9F"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_email_black_24dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="16dp"
-                android:gravity="bottom"
-                android:layout_gravity="bottom"/>
-            <!--Email-->
-            <android.support.design.widget.TextInputLayout
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_lastname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Last Name"
+                        android:textSize="16sp"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords|textPersonName" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content">
 
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="8dp">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_email"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="bottom"
+                    android:src="@drawable/ic_email_black_24dp"
+                    android:tint="@color/themeColor" />
+                <!--Email-->
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email Address"
-                    android:imeOptions="actionNext"
-                    android:inputType="textEmailAddress" />
-            </android.support.design.widget.TextInputLayout>
-</LinearLayout>
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email Address"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:textSize="16sp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
             <!--Phone Number-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:tint="#BB303F9F"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_smartphone_black_24dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="16dp"
-                android:gravity="bottom"
-                android:layout_gravity="bottom"/>
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content">
 
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="8dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="bottom"
+                    android:src="@drawable/ic_smartphone_black_24dp"
+                    android:tint="@color/themeColor" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_phonenumber"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Phone Number"
-                    android:imeOptions="actionNext"
-                    android:inputType="phone" />
-            </android.support.design.widget.TextInputLayout>
-</LinearLayout>
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_phonenumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Phone Number"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:textSize="16sp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
             <!--College-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:tint="#BB303F9F"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_school_black_24dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="16dp"
-                android:gravity="bottom"
-                android:layout_gravity="bottom"/>
-            <android.support.design.widget.TextInputLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="8dp">
+                android:layout_height="wrap_content">
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_college"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="bottom"
+                    android:src="@drawable/ic_school_black_24dp"
+                    android:tint="@color/themeColor" />
+
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="College/School"
-                    android:imeOptions="actionDone"
-                    android:inputType="textCapWords" />
-            </android.support.design.widget.TextInputLayout>
-</LinearLayout>
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_college"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="College/School"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapWords"
+                        android:textSize="16sp"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
             <!--Spinner-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp">
-                    <ImageView
-                        android:tint="#BB303F9F"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_event_black_24dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="24dp">
 
-                        android:layout_marginRight="12dp"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="12dp"
+                    android:gravity="bottom"
+                    android:src="@drawable/ic_event_black_24dp"
+                    android:tint="@color/themeColor" />
 
-                        android:gravity="bottom"
-                        android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -222,7 +245,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical" />
+                    android:gravity="center_vertical"
+                    android:textSize="16sp"/>
             </LinearLayout>
 
             <TextView
@@ -232,17 +256,19 @@
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="16dp"
                 android:text="All fields are required."
-                android:textColor="#BB303F9F"
+                android:textColor="@color/themeColor"
                 android:textSize="16sp" />
 
             <Button
-                android:layout_width="160dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="16dp"
-                android:background="#BB303F9F"
+                android:background="@color/themeColor"
                 android:elevation="8dp"
                 android:onClick="registerButton"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
                 android:text="Register"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
