@@ -191,8 +191,8 @@ public class Registration_Activity extends ActionBarActivity{
         if (first_name.trim().length() != 0 && email.matches(emailPattern) && phone_number.length() == 10)
         {
             Toast.makeText(getApplicationContext(), "Registered", Toast.LENGTH_SHORT).show();
-            this.finish();
         }
     }
+
 }
 
