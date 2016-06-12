@@ -1,7 +1,7 @@
 package trial;
 
 
-import android.app.Activity;
+import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,15 +9,24 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 
 import com.example.seetharaman.trial.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Registration_Activity extends ActionBarActivity{
 
     TextInputLayout til_first_name, til_last_name, til_email, til_phone_number, til_college_name;
+    ImageView im_first_name, im_email, im_phone_number, im_college_name;
     String first_name, last_name, email, phone_number, college_name;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";//For validating the e-mail
 
@@ -44,6 +53,21 @@ public class Registration_Activity extends ActionBarActivity{
         til_phone_number=(TextInputLayout)findViewById(R.id.til_phone_number);
         til_college_name=(TextInputLayout)findViewById(R.id.til_college_name);
 
+
+        Spinner s_events_list= (Spinner) findViewById(R.id.s_events_list);
+        List<String> event = new ArrayList<>();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_layout, event);
+        event.add("Event_1");
+        event.add("Event_2");
+        event.add("Event_3");
+        event.add("Event_4");
+        event.add("Event_5");
+        assert s_events_list!= null;
+        s_events_list.setAdapter(adapter);
+
+
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //Adding a tick mark in front of the text fields which are correctly filled
         final EditText et_first_name=(EditText)findViewById(R.id.et_first_name);
