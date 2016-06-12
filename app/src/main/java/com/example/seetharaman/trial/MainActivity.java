@@ -1,18 +1,28 @@
 package com.example.seetharaman.trial;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextInputLayout til_firstNameWrapper,til_lastNameWrapper,til_contactWrapper,til_collegeWrapper,til_emailWrapper;
+    Spinner s_category;
+    String[] category;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
         til_collegeWrapper=(TextInputLayout)findViewById(R.id.til_collegeWrapper);
         til_collegeWrapper.setHint("School/College Name");
         //til_collegeWrapper.setError(" ");
-/*"
-app:hintTextAppearance="@style/error_appearance""
-        */
+
+        category=new String[]{"Decibels","Creative Writing","Street Sports","Power chords","Acapella"};
+
+        s_category=(Spinner)findViewById((R.id.s_category));
+        s_category.setAdapter(new MyAdapter(this,R.layout.spinner_layout,category));
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void submit(View v)
@@ -132,6 +144,29 @@ app:hintTextAppearance="@style/error_appearance""
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         view.requestFocus();
         inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+    }
+
+    public class MyAdapter extends ArrayAdapter<String> {
+        public MyAdapter(Context ctx, int txtViewResourceId, String[] objects) {
+            super(ctx, txtViewResourceId, objects);
+        }
+
+        @Override
+        public View getDropDownView(int position, View cnvtView, ViewGroup prnt) {
+            return getCustomView(position, cnvtView, prnt);
+        }
+        @Override
+        public View getView(int pos, View cnvtView, ViewGroup prnt) {
+            return getCustomView(pos, cnvtView, prnt);
+        }
+        public View getCustomView(int position, View convertView,
+                                  ViewGroup parent) {
+            LayoutInflater inflater = getLayoutInflater();
+            View mySpinner = inflater.inflate(R.layout.spinner_layout, parent, false);
+            TextView main_text = (TextView) mySpinner.findViewById(R.id.t_category);
+            main_text.setText(category[position]);
+            return mySpinner;
+        }
     }
 }
 
