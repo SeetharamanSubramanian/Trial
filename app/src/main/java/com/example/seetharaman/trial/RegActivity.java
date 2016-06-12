@@ -20,28 +20,43 @@ public class RegActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
+        //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
         toolbar.setTitle("Registration");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         setSupportActionBar(toolbar);
-
+        //Spinner Dropdown
         List<String> events = new ArrayList<>();
         events.add("Decibels");
         events.add("Acapella");
         events.add("Scrabble");
         events.add("Fine Arts");
         events.add("Crossie");
+        List<String> phoneCodes = new ArrayList<>();
+        phoneCodes.add("+01");
+        phoneCodes.add("+90");
+        phoneCodes.add("+91");
+        phoneCodes.add("+92");
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, events);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<String> phoneadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, phoneCodes);
+        phoneadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Spinner Operations
         Spinner spinner = (Spinner) findViewById(R.id.spinner_event);
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
+
+        Spinner phonespinner = (Spinner) findViewById(R.id.spinner_phonecode);
+        phonespinner.setAdapter(phoneadapter);
+        phonespinner.setSelection(2);
     }
 
     public void registerButton(View view) {
         int errorFlag = 0;
+        //initializing input views
         EditText fname = (EditText) findViewById(R.id.et_firstname);
         EditText lname = (EditText) findViewById(R.id.et_lastname);
         EditText email = (EditText) findViewById(R.id.et_email);
@@ -54,13 +69,14 @@ public class RegActivity extends AppCompatActivity {
         Check for phno also checks if only 10 digits are included by using regex
         A variable is created for phno to avoid multiple calls to findViewById()
         */
-        if (fname.getText().toString().isEmpty()) {
+        //fname.getText().toString().isEmpty()
+        if (!fname.getText().toString().trim().matches("[A-Za-z -]+")) {
             fname.setError("Required field");
             errorFlag = 1;
         } else
             fname.setError(null);
 
-        if (lname.getText().toString().isEmpty()) {
+        if (!lname.getText().toString().trim().matches("[A-Za-z -]+")) {
             lname.setError("Required field");
             errorFlag = 1;
         } else
@@ -85,7 +101,7 @@ public class RegActivity extends AppCompatActivity {
         } else
             phno.setError(null);
 
-        if (((EditText) findViewById(R.id.et_college)).getText().toString().isEmpty()) {
+        if (college.getText().toString().isEmpty()) {
             college.setError("College name field is required.");
             errorFlag = 1;
         } else
