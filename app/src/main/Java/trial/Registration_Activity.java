@@ -163,33 +163,36 @@ public class Registration_Activity extends ActionBarActivity{
     }
 
     //Setting up the action for the submit button
-    public void submit(View view){
+    public void submit(View view) {
 
-        first_name=til_first_name.getEditText().getText().toString();
-        last_name=til_last_name.getEditText().getText().toString();
-        email=til_email.getEditText().getText().toString();
-        phone_number=til_phone_number.getEditText().getText().toString();
-        college_name=til_college_name.getEditText().getText().toString();
+        first_name = til_first_name.getEditText().getText().toString();
+        last_name = til_last_name.getEditText().getText().toString();
+        email = til_email.getEditText().getText().toString();
+        phone_number = til_phone_number.getEditText().getText().toString();
+        college_name = til_college_name.getEditText().getText().toString();
 
         //Setting up the error messages
-        if(first_name.trim().length()==0)
+        if (first_name.trim().length() == 0)
             til_first_name.setError("Field cannot remain empty");
         else
             til_first_name.setError(" ");
 
-        if(!email.matches(emailPattern))
+        if (!email.matches(emailPattern))
             til_email.setError("Invalid e-mail address");
         else
             til_email.setError(" ");
 
-        if(phone_number.length()<10)
+        if (phone_number.length() < 10)
             til_phone_number.setError("Invalid phone number");
         else
             til_phone_number.setError(" ");
 
         //Sending a message if all the data is correctly filled via Toast
-        if(first_name.trim().length()!=0 && email.matches(emailPattern) && phone_number.length()==10)
-            Toast.makeText(getApplicationContext(),"Registered",Toast.LENGTH_SHORT).show();
+        if (first_name.trim().length() != 0 && email.matches(emailPattern) && phone_number.length() == 10)
+        {
+            Toast.makeText(getApplicationContext(), "Registered", Toast.LENGTH_SHORT).show();
+            this.finish();
+        }
     }
 }
 
