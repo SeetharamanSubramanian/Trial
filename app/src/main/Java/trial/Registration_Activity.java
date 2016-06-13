@@ -9,6 +9,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -37,7 +38,7 @@ public class Registration_Activity extends ActionBarActivity{
 
         //Setting up the toolbar
         Toolbar t_reg_toolbar=(Toolbar)findViewById(R.id.t_reg_toolbar);
-        t_reg_toolbar.setTitle("Registration Page");
+        t_reg_toolbar.setTitle("Registration");
         t_reg_toolbar.setTitleTextColor(getResources().getColor(R.color.colorIcons));
         setSupportActionBar(t_reg_toolbar);
         final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
@@ -45,6 +46,11 @@ public class Registration_Activity extends ActionBarActivity{
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+
 
 
         til_first_name=(TextInputLayout)findViewById(R.id.til_first_name);
