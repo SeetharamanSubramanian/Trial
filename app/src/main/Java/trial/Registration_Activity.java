@@ -1,7 +1,6 @@
 package trial;
 
 
-import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,12 +8,9 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -27,7 +23,6 @@ import java.util.List;
 public class Registration_Activity extends ActionBarActivity{
 
     TextInputLayout til_first_name, til_last_name, til_email, til_phone_number, til_college_name;
-    ImageView im_first_name, im_email, im_phone_number, im_college_name;
     String first_name, last_name, email, phone_number, college_name;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";//For validating the e-mail
 
