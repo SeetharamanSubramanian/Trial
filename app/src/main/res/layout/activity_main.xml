@@ -171,7 +171,8 @@
                         android:textColor="@color/white"
                         android:paddingLeft="7dp"
                         android:paddingBottom="9dp"
-                        android:paddingTop="15dp" />
+                        android:paddingTop="15dp"
+                        android:maxLength="10"/>
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
