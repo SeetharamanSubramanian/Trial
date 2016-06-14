@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryLight">
+    android:background="@color/colorPrimaryLight"
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -44,11 +45,13 @@
     </android.support.design.widget.AppBarLayout>
 
 
+
     <android.support.v4.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -60,16 +63,15 @@
 
 
             <LinearLayout
-
                 android:layout_marginTop="32dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
-                    android:src="@drawable/icon_name"
+                    android:src="@drawable/ic_account_circle_white_24dp"
                     android:tint="@color/colorPrimary"
                     android:padding="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/im_first_name"/>
@@ -95,10 +97,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
-                    android:src="@drawable/icon_name"
+                    android:src="@drawable/ic_account_circle_white_24dp"
                     android:tint="@color/colorPrimary"
                     android:padding="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/im_last_name"/>
@@ -123,12 +125,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <ImageView
-                    android:src="@drawable/icon_email"
+                    android:src="@drawable/ic_email_white_24dp"
                     android:tint="@color/colorPrimary"
                     android:padding="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/im_email"/>
@@ -154,10 +155,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
-                    android:src="@drawable/icon_phone"
+                    android:src="@drawable/ic_phone_white_24dp"
                     android:tint="@color/colorPrimary"
                     android:padding="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/im_phone_number"/>
@@ -184,10 +185,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
-                    android:src="@drawable/icon_college"
+                    android:src="@drawable/ic_school_white_24dp"
                     android:tint="@color/colorPrimary"
                     android:padding="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/im_college"/>
@@ -206,19 +207,32 @@
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:src="@drawable/ic_event_white_24dp"
+                android:tint="@color/colorPrimary"
+                android:padding="8dp"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/im_events"/>
             <Spinner
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:id="@+id/s_events_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="48dp"
+                android:layout_marginLeft="16dp"
                 android:popupBackground="@color/colorPrimaryLight"
                 android:spinnerMode="dropdown" />
+        </LinearLayout>
 
             <Button
                 android:background="@drawable/border"
                 android:id="@+id/b_submit"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="32dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="SUBMIT"

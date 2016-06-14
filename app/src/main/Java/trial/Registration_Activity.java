@@ -41,11 +41,8 @@ public class Registration_Activity extends ActionBarActivity{
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                 WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-
 
 
         til_first_name=(TextInputLayout)findViewById(R.id.til_first_name);
@@ -66,9 +63,6 @@ public class Registration_Activity extends ActionBarActivity{
         assert s_events_list!= null;
         s_events_list.setAdapter(adapter);
 
-
-
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //Adding a tick mark in front of the text fields which are correctly filled
         final EditText et_first_name=(EditText)findViewById(R.id.et_first_name);
