@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Trial</string>
+    <string-array name="events">
+        <item>Choreo Night</item>
+        <item>Power Chords</item>
+        <item>Writing Competition</item>
+        <item>Panache</item>
+    </string-array>
 </resources>
