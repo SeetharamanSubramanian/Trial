@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                if ((events.size() != 0))
+                if ((events.size() == 0))
                     content_status[5]=false;
                 else
                     content_status[5]=true;
