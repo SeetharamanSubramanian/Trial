@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
 
         events = new ArrayList<String>();
@@ -58,69 +59,7 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
 
-        fn.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
 
-                if(!b)
-                {
-                    if(!(isEmpty(fn)))
-                        fn.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                    else
-                        fn.setBackgroundColor(Color.parseColor("#FFFD9797"));
-                }
-            }
-        });
-
-        sn.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b)
-                    if((!isEmpty(sn)))
-                        sn.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                    else
-                        sn.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-            }
-        });
-
-        phno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b)
-                    if((!isEmpty(phno)) && phno.getText().toString().length()==10)
-                        phno.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                    else
-                        phno.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-            }
-        });
-
-        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b)
-                    if(((!isEmpty(email)) && isEmailValid(email_id)))
-                        email.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                    else
-                        email.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-            }
-        });
-        try{
-
-        school.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b)
-                    if(((!isEmpty(school))))
-                        school.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                    else
-                        school.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-            }
-        });}
-        catch (NullPointerException e){}
 
 
 
@@ -174,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-       /* ImageButton b_verify = (ImageButton)findViewById(R.id.ib_verify);
+       ImageButton b_verify = (ImageButton)findViewById(R.id.ib_verify);
 
         b_verify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                if ((!(isEmpty(fn)))&&(!isEmpty(sn)) && ((!isEmpty(phno)) && isValidPhoneNumber(phno.getText())) && ((!isEmpty(email)) && isEmailValid(email_id)) && ((!isEmpty(school))))
+                if ((!(isEmpty(fn)))&&(!isEmpty(sn)) && ((!isEmpty(phno)) && ph_no.length()==10) && ((!isEmpty(email)) && isEmailValid(email_id)) && ((!isEmpty(school))))
 
                 {
                     reg.setImageResource(R.drawable.tick);
@@ -216,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     sn.setBackgroundColor(Color.parseColor("#FFFD9797"));
 
 
-                if((!isEmpty(phno)) && isValidPhoneNumber(phno.getText()))
+                if((!isEmpty(phno)) && ph_no.length()==10)
                     phno.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
                 else
                     phno.setBackgroundColor(Color.parseColor("#FFFD9797"));
@@ -239,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        });*/
+        });
 
 
 
@@ -286,17 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public final static boolean isValidPhoneNumber(CharSequence target) {
-        if (target == null) {
-            return false;
-        } else {
-            if (target.length() < 6) {
-                return false;
-            } else {
-                return android.util.Patterns.PHONE.matcher(target).matches();
-            }
-        }
-    }
+
 }
 
 

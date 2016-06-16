@@ -9,96 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.seetharaman.trial.MainActivity"
     android:fillViewport="true">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.TextInputLayout android:id="@+id/view"
-                android:layout_column="1"
-                android:layout_width="300dp"
-                android:layout_height="50dp">
+        <android.support.design.widget.TextInputLayout android:id="@+id/view"
+            android:layout_column="1"
+            android:layout_width="300dp"
+            android:layout_height="50dp">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -107,25 +25,39 @@
                 android:ems="10"
                 android:id="@+id/et_firstname"
                 android:hint="First Name" />
-            </android.support.design.widget.TextInputLayout>
-        </TableRow>
+        </android.support.design.widget.TextInputLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
+        <Spinner android:id="@+id/sp_event"
+            android:layout_column="1"
+            android:spinnerMode="dropdown"
+            android:layout_height="60dp"
+            android:layout_width="250dp"
+            android:layout_below="@+id/view5"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:id="@+id/ib_add_clear_event"
+            android:layout_column="2"
+            android:src="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:background="@android:color/transparent"
+            android:layout_alignBottom="@+id/sp_event"
+            android:layout_toRightOf="@+id/sp_event"
+            android:layout_toEndOf="@+id/sp_event" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <android.support.design.widget.TextInputLayout android:id="@+id/view2"
-                android:layout_column="1"
-                android:layout_width="300dp"
-                android:layout_height="50dp" >
+
+
+        <android.support.design.widget.TextInputLayout android:id="@+id/view2"
+            android:layout_column="1"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -135,21 +67,15 @@
                 android:id="@+id/et_secondname"
                 android:layout_column="2"
                 android:hint="Last Name" />
-            </android.support.design.widget.TextInputLayout>
-        </TableRow>
+        </android.support.design.widget.TextInputLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.TextInputLayout android:id="@+id/view3"
-                android:layout_column="1"
-                android:layout_width="300dp"
-                android:layout_height="50dp" >
+        <android.support.design.widget.TextInputLayout android:id="@+id/view3"
+            android:layout_column="1"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -160,21 +86,16 @@
                 android:layout_column="2"
                 android:hint="Phone Number"
                 android:maxLength="10"/>
-            </android.support.design.widget.TextInputLayout>
-        </TableRow>
+        </android.support.design.widget.TextInputLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.TextInputLayout android:id="@+id/view4"
-                android:layout_column="1"
-                android:layout_width="300dp"
-                android:layout_height="50dp" >
+        <android.support.design.widget.TextInputLayout android:id="@+id/view4"
+            android:layout_column="1"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -185,21 +106,15 @@
                 android:layout_column="2"
                 android:hint="Email id."
                 android:focusable="true" />
-            </android.support.design.widget.TextInputLayout>
-        </TableRow>
+        </android.support.design.widget.TextInputLayout>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.design.widget.TextInputLayout android:id="@+id/view5"
-                android:layout_column="1"
-                android:layout_width="300dp"
-                android:layout_height="100dp" >
+        <android.support.design.widget.TextInputLayout android:id="@+id/view5"
+            android:layout_column="1"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/view4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
 
 
@@ -213,69 +128,30 @@
                 android:hint="School/ College"
                 android:focusable="false" />
 
-            </android.support.design.widget.TextInputLayout>
-        </TableRow>
+        </android.support.design.widget.TextInputLayout>
+        <ImageButton android:id="@+id/ib_register"
+            android:layout_column="1"
+            android:layout_height="50dp"
+            android:visibility="visible"
+            android:focusable="false"
+            android:layout_marginTop="39dp"
+            android:layout_below="@+id/sp_event"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginStart="35dp"
+            android:layout_width="50dp"
+            android:scaleType="fitXY" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/ib_verify"
+            android:layout_alignTop="@+id/ib_register"
+            android:layout_alignRight="@+id/ib_add_clear_event"
+            android:layout_alignEnd="@+id/ib_add_clear_event"
+            android:scaleType="fitXY" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Spinner android:id="@+id/sp_event"
-                android:layout_column="1"
-                android:spinnerMode="dropdown"
-                android:layout_height="60dp" />
-
-            <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                android:id="@+id/ib_add_clear_event"
-                android:layout_column="2"
-                android:src="@android:color/transparent" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageButton android:id="@+id/ib_register"
-                android:layout_column="1"
-                android:layout_height="50dp"
-                android:visibility="invisible"
-                android:focusable="false" />
-        </TableRow>
-    </TableLayout>
+    </RelativeLayout>
 </ScrollView>
