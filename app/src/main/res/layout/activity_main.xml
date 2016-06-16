@@ -8,14 +8,30 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.seetharaman.trial.MainActivity"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@drawable/back1">
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
+
+        <ScrollView
+            android:layout_width="250dp"
+            android:layout_height="400dp"
+            android:id="@+id/SV_Entries"
+            android:fillViewport="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="67dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
         <android.support.design.widget.TextInputLayout android:id="@+id/view"
             android:layout_column="1"
-            android:layout_width="300dp"
+            android:layout_width="245dp"
             android:layout_height="50dp">
 
             <EditText
@@ -24,21 +40,24 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/et_firstname"
-                android:hint="First Name" />
+                android:hint="First Name"
+
+                android:width="300dp" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner android:id="@+id/sp_event"
             android:layout_column="1"
             android:spinnerMode="dropdown"
-            android:layout_height="60dp"
-            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_width="195dp"
             android:layout_below="@+id/view5"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:background="@android:color/transparent" />
 
         <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="60dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:id="@+id/ib_add_clear_event"
             android:layout_column="2"
             android:src="@android:color/transparent"
@@ -53,7 +72,7 @@
 
         <android.support.design.widget.TextInputLayout android:id="@+id/view2"
             android:layout_column="1"
-            android:layout_width="300dp"
+            android:layout_width="245dp"
             android:layout_height="50dp"
             android:layout_below="@+id/view"
             android:layout_alignParentLeft="true"
@@ -66,12 +85,13 @@
                 android:ems="10"
                 android:id="@+id/et_secondname"
                 android:layout_column="2"
-                android:hint="Last Name" />
+                android:hint="Last Name"
+                android:width="300dp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout android:id="@+id/view3"
             android:layout_column="1"
-            android:layout_width="300dp"
+            android:layout_width="245dp"
             android:layout_height="50dp"
             android:layout_below="@+id/view2"
             android:layout_alignParentLeft="true"
@@ -85,13 +105,15 @@
                 android:id="@+id/et_phno"
                 android:layout_column="2"
                 android:hint="Phone Number"
-                android:maxLength="10"/>
+                android:maxLength="10"
+                android:digits="0123456789"
+                android:width="300dp" />
         </android.support.design.widget.TextInputLayout>
 
 
         <android.support.design.widget.TextInputLayout android:id="@+id/view4"
             android:layout_column="1"
-            android:layout_width="300dp"
+            android:layout_width="245dp"
             android:layout_height="50dp"
             android:layout_below="@+id/view3"
             android:layout_alignParentLeft="true"
@@ -105,12 +127,13 @@
                 android:id="@+id/et_email"
                 android:layout_column="2"
                 android:hint="Email id."
-                android:focusable="true" />
+                android:focusable="true"
+                android:width="300dp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout android:id="@+id/view5"
             android:layout_column="1"
-            android:layout_width="300dp"
+            android:layout_width="245dp"
             android:layout_height="100dp"
             android:layout_below="@+id/view4"
             android:layout_alignParentLeft="true"
@@ -126,30 +149,32 @@
                 android:id="@+id/et_school"
                 android:layout_column="2"
                 android:hint="School/ College"
-                android:focusable="false" />
+                android:width="300dp"
+                android:maxLength="30" />
 
         </android.support.design.widget.TextInputLayout>
-        <ImageButton android:id="@+id/ib_register"
-            android:layout_column="1"
-            android:layout_height="50dp"
-            android:visibility="visible"
-            android:focusable="false"
-            android:layout_marginTop="39dp"
-            android:layout_below="@+id/sp_event"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="35dp"
-            android:layout_marginStart="35dp"
-            android:layout_width="50dp"
-            android:scaleType="fitXY" />
+
+            </RelativeLayout>
+        </ScrollView>
 
         <ImageButton
-            android:layout_width="50dp"
+            android:layout_width="130dp"
             android:layout_height="50dp"
             android:id="@+id/ib_verify"
-            android:layout_alignTop="@+id/ib_register"
-            android:layout_alignRight="@+id/ib_add_clear_event"
-            android:layout_alignEnd="@+id/ib_add_clear_event"
+            android:scaleType="fitXY"
+            android:layout_marginTop="64dp"
+            android:layout_below="@+id/SV_Entries"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible"
+            android:src="@drawable/register" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/imageView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/icon"
             android:scaleType="fitXY" />
 
 

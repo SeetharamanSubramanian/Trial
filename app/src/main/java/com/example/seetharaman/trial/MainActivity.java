@@ -3,6 +3,7 @@ package com.example.seetharaman.trial;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     String first_name, second_name , ph_no , email_id , school_clg;
     String [] events_list_orig;
     ArrayList<String> events;
-    ArrayList<Boolean>  selection_status;
+    ArrayList<Boolean>  selection_status;   //True:selected    False:Not selected
+    Boolean content_status[]= new Boolean[6];   //true:valid    false:invalid
     public int io;
 
     int flag=0;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        for(int i=0; i<5;i++)
+            content_status[i]=false;
 
 
         events = new ArrayList<String>();
@@ -51,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText phno = (EditText)findViewById(R.id.et_phno);
         final EditText email = (EditText)findViewById(R.id.et_email);
         final EditText school = (EditText)findViewById(R.id.et_school);
-        final ImageButton reg = (ImageButton)findViewById(R.id.ib_register);
+        //final ImageButton reg = (ImageButton)findViewById(R.id.ib_register);
         final ImageButton add_clr = (ImageButton)findViewById(R.id.ib_add_clear_event);
 
         Spinner spinner = (Spinner)findViewById(R.id.sp_event);
@@ -59,16 +63,66 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
 
+        fn.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(isEmpty(fn) ||(!isName(fn))) {
+                    fn.setError("Invalid Name");
+                    content_status[0]=false;
+                }
+                else
+                    content_status[0]=true;
 
+            }
+        });
 
+        sn.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(isEmpty(sn) || (!isName(sn))) {
+                    sn.setError("Invalid Name");
+                    content_status[1] = false;
+                }
+                else
+                    content_status[1]=true;
+            }
+        });
 
+        phno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(isEmpty(phno) || phno.getText().toString().length()!=10) {
+                    phno.setError("Invalid Number");
+                    content_status[2] = false;
+                }
+                else
+                    content_status[2]=true;
+            }
+        });
 
+        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(isEmpty(email)  || !isEmailValid(email.getText().toString())) {
+                    email.setError("Invalid Email Id.");
+                    content_status[3] = false;
+                }
+                else
+                    content_status[3]=true;
+            }
+        });
 
-
-
-
-
-
+        school.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(isEmpty(school)) {
+                    school.setError("Invalid Name");
+                    content_status[4] = false;
+                }
+                else
+                    content_status[4]=true;
+            }
+        });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -113,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-       ImageButton b_verify = (ImageButton)findViewById(R.id.ib_verify);
+       final ImageButton b_verify = (ImageButton)findViewById(R.id.ib_verify);
 
         b_verify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,51 +183,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                if ((!(isEmpty(fn)))&&(!isEmpty(sn)) && ((!isEmpty(phno)) && ph_no.length()==10) && ((!isEmpty(email)) && isEmailValid(email_id)) && ((!isEmpty(school))))
+                if ((events.size() != 0))
+                    content_status[5]=false;
+                else
+                    content_status[5]=true;
 
+
+                for(int i=0;i<6;i++)
                 {
-                    reg.setImageResource(R.drawable.tick);
-                    flag=1;
+                    if(content_status[i])
+                        flag=1;
+                    else {
+                        flag = 0;
+                        Toast.makeText(MainActivity.this, "Complete The Form To Register", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
                 }
-                else
-                {
-                    flag=0;
-                    reg.setImageResource(R.drawable.cross);
-
-                }
-
-
-
-                if(!(isEmpty(fn)))
-                    fn.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                else
-                    fn.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-                if((!isEmpty(sn)))
-                    sn.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                else
-                    sn.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-
-                if((!isEmpty(phno)) && ph_no.length()==10)
-                    phno.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                else
-                    phno.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-
-                if(((!isEmpty(email)) && isEmailValid(email_id)))
-                    email.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                else
-                    email.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-                if(((!isEmpty(school))))
-                    school.setBackgroundColor(Color.parseColor("#FFC5FCB1"));
-                else
-                    school.setBackgroundColor(Color.parseColor("#FFFD9797"));
-
-
-
-
 
 
 
@@ -221,6 +246,19 @@ public class MainActivity extends AppCompatActivity {
 
         return i;
 
+    }
+
+    public boolean isName(EditText e)
+    {
+        String s= e.getText().toString();
+        char ch;
+        for(int i =0; i<s.length(); i++)
+        {
+            ch = s.charAt(i);
+            if(!((ch<='z'&&ch>='a')||((ch<='Z')&&(ch>='A'))))
+                return false;
+        }
+        return true;
     }
 
 
