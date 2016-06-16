@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        for(int i=0; i<5;i++)
+        for(int i=0; i<6;i++)
             content_status[i]=false;
 
 
@@ -172,6 +172,11 @@ public class MainActivity extends AppCompatActivity {
         b_verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                fn.clearFocus();
+                sn.clearFocus();
+                phno.clearFocus();
+                email.clearFocus();
+                school.clearFocus();
 
 
                 first_name = fn.getText().toString();
@@ -183,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                if ((events.size() == 0))
+                if ((events.isEmpty()))
                     content_status[5]=false;
                 else
                     content_status[5]=true;
