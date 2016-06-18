@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -58,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
         //final ImageButton reg = (ImageButton)findViewById(R.id.ib_register);
         final ImageButton add_clr = (ImageButton)findViewById(R.id.ib_add_clear_event);
 
+
+        final ListView ls = (ListView)findViewById(R.id.lv_eventsAdded);
+        ArrayAdapter<String> ad = new ArrayAdapter<String>(MainActivity.this , android.R.layout.simple_list_item_1, events);
+        ls.setAdapter(ad);
+
+
         Spinner spinner = (Spinner)findViewById(R.id.sp_event);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, events_list_orig);
         spinner.setAdapter(adapter);
@@ -66,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         fn.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
+                if(!b)
                 if(isEmpty(fn) ||(!isName(fn))) {
                     fn.setError("Invalid Name");
                     content_status[0]=false;
@@ -79,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         sn.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
+                if(!b)
                 if(isEmpty(sn) || (!isName(sn))) {
                     sn.setError("Invalid Name");
                     content_status[1] = false;
@@ -91,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         phno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
+                if(!b)
                 if(isEmpty(phno) || phno.getText().toString().length()!=10) {
                     phno.setError("Invalid Number");
                     content_status[2] = false;
@@ -103,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
+                if(!b)
                 if(isEmpty(email)  || !isEmailValid(email.getText().toString())) {
                     email.setError("Invalid Email Id.");
                     content_status[3] = false;
@@ -115,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         school.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
+                if(!b)
                 if(isEmpty(school)) {
                     school.setError("Invalid Name");
                     content_status[4] = false;
@@ -150,16 +162,19 @@ public class MainActivity extends AppCompatActivity {
                 {
                     events.remove(search(events_list_orig[io]));
                     selection_status.set(io,false);
-                    Toast.makeText(MainActivity.this, "Event removed", Toast.LENGTH_SHORT).show();
+                    //removed
                     add_clr.setImageResource(R.drawable.add);
                 }
                 else
                 {
                     events.add(events_list_orig[io]);
                     selection_status.set(io,true);
-                    Toast.makeText(MainActivity.this, "Event Added", Toast.LENGTH_SHORT).show();
+                    //added
                     add_clr.setImageResource(R.drawable.clear);
                 }
+
+                ArrayAdapter<String> ad = new ArrayAdapter<String>(MainActivity.this , android.R.layout.simple_list_item_1, events);
+                ls.setAdapter(ad);
             }
         });
 
@@ -204,6 +219,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                 }
+
+                if(flag==1)
+                    Toast.makeText(MainActivity.this, "Registered", Toast.LENGTH_SHORT).show();
 
 
 
